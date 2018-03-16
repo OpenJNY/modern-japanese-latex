@@ -1,0 +1,269 @@
+
+\RequirePackage{xparse}
+% \RequirePackage[all, warning]{onlyamsmath}
+\RequirePackage{mathtools}
+\RequirePackage{amsmath,amssymb,amsfonts,bm,xstring}
+\usefonttheme{professionalfonts}
+\RequirePackage{ascmac}
+\RequirePackage{array}
+
+\RequirePackage{amsthm}
+
+\makeatletter
+  \renewcommand{\theequation}{%
+  \thesection.\arabic{equation}}
+  \@addtoreset{equation}{section}
+\makeatother
+
+\def\VEC#1
+    {\IfSubStr{ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz}{#1}
+        {\mathbf{#1}}
+        {\boldsymbol{#1}}}
+\renewcommand{\vec}[1]{\VEC{#1}}
+
+\newcommand{\defeq}{\stackrel{\mbox{\footnotesize def}}{=}}
+
+\newcommand{\fhalf}{\frac{1}{2}}
+\newcommand{\finv}[1]{\frac{1}{#1}}
+\newcommand{\vone}{\mathbf{1}}
+\newcommand{\vzero}{\mathbf{0}}
+
+% Alphabet 全般
+
+\newcommand{\va}{{\mathbf{a}}}
+\newcommand{\vb}{{\mathbf{b}}}
+\newcommand{\vc}{{\mathbf{c}}}
+\newcommand{\vd}{{\mathbf{d}}}
+\newcommand{\ve}{{\mathbf{e}}}
+\newcommand{\vf}{{\mathbf{f}}}
+\newcommand{\vg}{{\mathbf{g}}}
+\newcommand{\vh}{{\mathbf{h}}}
+\newcommand{\vi}{{\mathbf{i}}}
+\newcommand{\vj}{{\mathbf{j}}}
+\newcommand{\vk}{{\mathbf{k}}}
+\newcommand{\vl}{{\mathbf{l}}}
+\newcommand{\vm}{{\mathbf{m}}}
+\newcommand{\vn}{{\mathbf{n}}}
+\newcommand{\vo}{{\mathbf{o}}}
+\newcommand{\vp}{{\mathbf{p}}}
+\newcommand{\vq}{{\mathbf{q}}}
+\newcommand{\vr}{{\mathbf{r}}}
+\newcommand{\vs}{{\mathbf{s}}}
+\newcommand{\vt}{{\mathbf{t}}}
+\newcommand{\vu}{{\mathbf{u}}}
+\newcommand{\vv}{{\mathbf{v}}}
+\newcommand{\vw}{{\mathbf{w}}}
+\newcommand{\vx}{{\mathbf{x}}}
+\newcommand{\vy}{{\mathbf{y}}}
+\newcommand{\vz}{{\mathbf{z}}}
+
+\newcommand{\vA}{{\mathbf{A}}}
+\newcommand{\vB}{{\mathbf{B}}}
+\newcommand{\vC}{{\mathbf{C}}}
+\newcommand{\vD}{{\mathbf{D}}}
+\newcommand{\vE}{{\mathbf{E}}}
+\newcommand{\vF}{{\mathbf{F}}}
+\newcommand{\vG}{{\mathbf{G}}}
+\newcommand{\vH}{{\mathbf{H}}}
+\newcommand{\vI}{{\mathbf{I}}}
+\newcommand{\vJ}{{\mathbf{J}}}
+\newcommand{\vK}{{\mathbf{K}}}
+\newcommand{\vL}{{\mathbf{L}}}
+\newcommand{\vM}{{\mathbf{M}}}
+\newcommand{\vN}{{\mathbf{N}}}
+\newcommand{\vO}{{\mathbf{O}}}
+\newcommand{\vP}{{\mathbf{P}}}
+\newcommand{\vQ}{{\mathbf{Q}}}
+\newcommand{\vR}{{\mathbf{R}}}
+\newcommand{\vS}{{\mathbf{S}}}
+\newcommand{\vT}{{\mathbf{T}}}
+\newcommand{\vU}{{\mathbf{U}}}
+\newcommand{\vV}{{\mathbf{V}}}
+\newcommand{\vW}{{\mathbf{W}}}
+\newcommand{\vX}{{\mathbf{X}}}
+\newcommand{\vY}{{\mathbf{Y}}}
+\newcommand{\vZ}{{\mathbf{Z}}}
+
+\newcommand{\cA}{{\mathcal{A}}}
+\newcommand{\cB}{{\mathcal{B}}}
+\newcommand{\cC}{{\mathcal{C}}}
+\newcommand{\cD}{{\mathcal{D}}}
+\newcommand{\cE}{{\mathcal{E}}}
+\newcommand{\cF}{{\mathcal{F}}}
+\newcommand{\cG}{{\mathcal{G}}}
+\newcommand{\cH}{{\mathcal{H}}}
+\newcommand{\cI}{{\mathcal{I}}}
+\newcommand{\cJ}{{\mathcal{J}}}
+\newcommand{\cK}{{\mathcal{K}}}
+\newcommand{\cL}{{\mathcal{L}}}
+\newcommand{\cM}{{\mathcal{M}}}
+\newcommand{\cN}{{\mathcal{N}}}
+\newcommand{\cO}{{\mathcal{O}}}
+\newcommand{\cP}{{\mathcal{P}}}
+\newcommand{\cQ}{{\mathcal{Q}}}
+\newcommand{\cR}{{\mathcal{R}}}
+\newcommand{\cS}{{\mathcal{S}}}
+\newcommand{\cT}{{\mathcal{T}}}
+\newcommand{\cU}{{\mathcal{U}}}
+\newcommand{\cV}{{\mathcal{V}}}
+\newcommand{\cW}{{\mathcal{W}}}
+\newcommand{\cX}{{\mathcal{X}}}
+\newcommand{\cY}{{\mathcal{Y}}}
+\newcommand{\cZ}{{\mathcal{Z}}}
+
+\let\Haccent=\H % ダブルアキュートアクセント
+\let\Lsymbol=\L % ストローク付きＬ
+\let\Osymbol=\O % ストローク付きＯ
+\let\Psymbol=\P % 段落記号¶
+\let\Ssymbol=\S % 節記号§
+\let\H=\relax
+\let\L=\relax
+\let\O=\relax
+\let\P=\relax
+\let\S=\relax
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\E}{\mathbb{E}}
+
+% Greeks
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\Tau}{\mathcal{T}}
+
+\newcommand{\valpha}   {\boldsymbol{\alpha}}
+\newcommand{\vbeta}    {\boldsymbol{\beta}}
+\newcommand{\vgamma}   {\boldsymbol{\gamma}}
+\newcommand{\vdelta}   {\boldsymbol{\delta}}
+\newcommand{\vepsilon} {\boldsymbol{\epsilon}}
+\newcommand{\vzeta}    {\boldsymbol{\zeta}}
+\newcommand{\veta}     {\boldsymbol{\eta}}
+\newcommand{\vtheta}   {\boldsymbol{\theta}}
+\newcommand{\viota}    {\boldsymbol{\iota}}
+\newcommand{\vkappa}   {\boldsymbol{\kappa}}
+\newcommand{\vlambda}  {\boldsymbol{\lambda}}
+\newcommand{\vmu}      {\boldsymbol{\mu}}
+\newcommand{\vnu}      {\boldsymbol{\nu}}
+\newcommand{\vxi}      {\boldsymbol{\xi}}
+\newcommand{\vpi}      {\boldsymbol{\pi}}
+\newcommand{\vrho}     {\boldsymbol{\rho}}
+\newcommand{\vsigma}   {\boldsymbol{\sigma}}
+\newcommand{\vtau}     {\boldsymbol{\tau}}
+\newcommand{\vupsilon} {\boldsymbol{\upsilon}}
+\newcommand{\vphi}     {\boldsymbol{\phi}}
+\newcommand{\vchi}     {\boldsymbol{\chi}}
+\newcommand{\vpsi}     {\boldsymbol{\psi}}
+\newcommand{\vomega}   {\boldsymbol{\omega}}
+
+\newcommand{\mGamma}{\boldsymbol{\Gamma}}
+\newcommand{\mDelta}{\boldsymbol{\Delta}}
+\newcommand{\mTheta}{\boldsymbol{\Theta}}
+\newcommand{\mLambda}{\boldsymbol{\Lambda}}
+\newcommand{\mXi}{\boldsymbol{\Xi}}
+\newcommand{\mPi}{\boldsymbol{\Pi}}
+\newcommand{\mSigma}{\boldsymbol{\Sigma}}
+\newcommand{\mUpsilon}{\boldsymbol{\Upsilon}}
+\newcommand{\mPhi}{\boldsymbol{\Phi}}
+\newcommand{\mPsi}{\boldsymbol{\Psi}}
+\newcommand{\mOmega}{\boldsymbol{\Omega}}
+
+% Parentheses
+% -----------
+
+\RequirePackage{mleftright,xparse}
+
+% DeclarePairedDelimiter だと，without-star が [base] で with-star が [auto]
+% になるので，それを反対にしたもの
+\NewDocumentCommand\xDeclarePairedDelimiter{mmm}
+ {%
+  \NewDocumentCommand#1{som}{%
+   \IfNoValueTF{##2}
+    {\IfBooleanTF{##1}{#2##3#3}{\mleft#2##3\mright#3}}
+    {\mathopen{##2#2}##3\mathclose{##2#3}}%
+  }%
+}
+
+\xDeclarePairedDelimiter{\parens}{\lparen}{\rparen}
+\xDeclarePairedDelimiter{\braces}{\lbrace}{\rbrace}
+\xDeclarePairedDelimiter{\angles}{\langle}{\rangle}
+\xDeclarePairedDelimiter{\verts}{\lvert}{\rvert}
+\xDeclarePairedDelimiter{\Verts}{\lVert}{\rVert}
+\xDeclarePairedDelimiter{\brackets}{[}{]}
+\newcommand{\tuple}{\angles}
+\newcommand{\set}{\braces}
+\newcommand{\abs}{\verts}
+\newcommand{\card}{\verts}
+
+\newcommand*{\ssqrt}[1]{\sqrt{\smash[b]{\mathstrut #1}}}
+\DeclareMathOperator*{\argmax}{arg\,max\,}
+\DeclareMathOperator*{\argmin}{arg\,min\,}
+\DeclareMathOperator*{\maximize}{maximize\,}
+\DeclareMathOperator*{\minimize}{minimize\,}
+\DeclareMathOperator*{\subjectto}{subject\,to\,}
+\DeclareMathOperator*{\suchthat}{s.\,t.\,}
+\DeclareMathOperator*{\dom}{dom\,}
+\DeclareMathOperator*{\range}{range\,}
+
+% Linear Algebra
+% --------------
+
+% Vector
+
+\newcommand{\inprod}{\angles*}
+\newcommand{\norm}{\Verts}
+
+% Matrix
+\newcommand{\inv}{^{-1}}
+\newcommand{\trans}{^\top}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\Tr}{Tr}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\sgn}{sgn}
+
+\newcommand{\pmatrixin}[1]{\begin{pmatrix}#1\end{pmatrix}}
+
+% Calculus
+% --------
+
+\newcommand{\eval}[1]{\Big|_{#1}}
+\newcommand*{\diff}{\mathop{}\!\mathrm{d}}
+\newcommand{\ff}[2]{\frac{\,{#1}\,}{\,{#2}\,}}
+\newcommand{\dd}[2]{\frac{\,d{#1}\,}{\,d{#2}\,}}
+\newcommand{\pp}[2]{\frac{\,\partial{\, #1}\,}{\,\partial{\, #2}\,}}
+
+
+% Set Theory
+% ----------
+
+\newcommand{\union}{\cup}
+\newcommand{\Union}{\bigcup}
+\newcommand{\intersection}{\cap}
+\newcommand{\Intersection}{\bigcap}
+\newcommand{\setand}{\cap}     % Intersection
+\newcommand{\Setand}{\bigcap}  % Big intersection
+\newcommand{\setor}{\cup}      % Union
+\newcommand{\Setor}{\bigcup}   % Big union
+
+\renewcommand{\emptyset}{\varnothing}
+
+% Probability Theory
+% ------------------
+
+\newcommand{\iid}{i.~i.~d.}
+\newcommand{\given}{\,|\,}
+\DeclareMathOperator{\p}{p}
+\DeclareMathOperator{\var}{var}
+
+\DeclareMathOperator{\GammaDis}{Gam}
+\DeclareMathOperator{\ExpDis}{Exp}
+\DeclareMathOperator{\BetaDis}{Beta}
+\DeclareMathOperator{\BinomialDis}{Bin}
+\DeclareMathOperator{\MultinomialDis}{Multi}
+\DeclareMathOperator{\MVN}{Multi}
+\DeclareMathOperator{\BernoulliDis}{Ber}
+\DeclareMathOperator{\GeoDis}{Geo}
+\DeclareMathOperator{\NegBinDis}{NegBin}
+\DeclareMathOperator{\PoissonDis}{Poi}
+\DeclareMathOperator{\NormalDis}{\mathcal{N}}
+\DeclareMathOperator{\UniformDis}{Unif}
+\DeclareMathOperator{\DiscreteUniformDis}{DiscUnif}
+\DeclareMathOperator{\CauchyDis}{Cauchy}

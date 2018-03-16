@@ -1,0 +1,33 @@
+\RequirePackage{tikz}
+\RequirePackage{tikz-cd}
+\usetikzlibrary{shapes,calc,positioning}
+
+% Rounded Image
+% e.g.
+% \roundpic[xshift=-1cm,yshift=-2.6cm]{5.8cm}{9cm}{filename}
+% \newcommand{\roundpic}[4][]{
+%   \tikz\node [circle, minimum width = #2,
+%     path picture = {
+%       \node [#1] at (path picture bounding box.center) {
+%         \includegraphics[width=#3]{#4}
+%       };
+%     }
+%   ] {};
+% }
+
+\RequirePackage{xcolor}
+\RequirePackage{xcolor-material}
+
+\newcommand*{\fixheight}[1]{\smash[b]{\mathstrut #1}}
+\newcommand{\highlightwithcolor}[3]{\tikz[baseline=(x.base)]{\node[rectangle,color=#1,fill=#2](x){#3};}}
+\newcommand{\highlightcapwithcolorandpos}[6]{\tikz[baseline=(x.base)]{\node[rectangle,color=#1,fill=#2](x){#3} node[color=#4,#5 of=x,node distance=15pt]{#6};}}
+
+% ハイライト（デフォルトカラー
+\newcommand{\highlight}[1]{\highlightwithcolor{black}{MaterialAmber300}{\fixheight{#1}}}
+%
+\newcommand{\highlightcap}[2]{\highlightcapwithcolorandpos{black}{MaterialAmber300}{\fixheight{#1}}{MaterialIndigo700}{below}{\scriptsize  #2}}
+\newcommand{\highlightcapwithcolor}[3]{\highlightcapwithcolorandpos{black}{#3}{\fixheight{#1}}{black}{below}{\scriptsize  #2}}
+\newcommand{\highlightcapabove}[2]{\highlightcapwithcolorandpos{black}{yellow!20}{\fixheight{#1}}{yellow}{above}{#2}}
+
+\newcommand{\hlteal}[1]{\highlightwithcolor{white}{MaterialTeal}{\textbf{\fixheight{#1}}}}
+\newcommand{\hlindigo}[1]{\highlightwithcolor{white}{MaterialIndigo}{\textbf{\fixheight{#1}}}}

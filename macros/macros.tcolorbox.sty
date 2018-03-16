@@ -1,0 +1,28 @@
+\RequirePackage{xcolor}
+\RequirePackage[skins,breakable]{tcolorbox}
+
+\newtcolorbox{embedbox}{%
+  breakable,
+  colback=black!4!white,
+  before skip=1em plus 2pt minus 2pt,
+  after skip=1em plus 2pt minus 2pt,
+  arc=0pt, outer arc=0pt,
+  % top=5pt,bottom=5pt,left=3pt,right=3pt,
+  boxrule=0pt,
+  boxsep=0pt
+}
+
+\definecolor{alertinfobakcol}{HTML}{d9edf7}
+\definecolor{alertinfobordercol}{HTML}{bcdff1}
+
+\newtcolorbox{alertinfo}{
+  breakable,
+  colback=alertinfobakcol,
+  before skip=1em plus 2pt minus 2pt,
+  after skip=1em plus 2pt minus 2pt,
+  arc=0pt, outer arc=0pt,
+  boxrule=0pt,
+  boxsep=0pt,
+  borderline={3pt}{1pt}{alertinfobordercol}
+  % borderline west={3pt}{0pt}{alertinfobordercol}
+}
