@@ -1,35 +1,6 @@
 # Modern Japanese LaTeX
 
-日本語の LaTeX を快適に書ける環境を提供します．
-
-## インストール
-
-```sh
-git clone git@github.com:openjny/modern-japanese-latex.git
-cd modern-japanese-latex
-./install.sh
-```
-
-* modern-latex
-
-## 使い方
-
-```sh
-modern-japanese-latex <dir> <doc-type> [--maros|-m]
-```
-
-`dir` にはインストールするディレクトリを指定します．
-
-
-`doc-type` には次のどれかを指定します
-*
-
-### jsarticle
-
-jsarticle のプロジェクトを作成したいときは
-
-```sh
-modern-japanese-latex jsarticle
+日本語の LaTeX を快適に書くためのファイル
 
 ## Makefile でコンパイル
 

@@ -156,3 +156,17 @@
 % \lstset{#1}
 % }
 % {}
+
+% \newsavebox\terminalbox
+% \lstnewenvironment{terminal}[1][]
+%   {\lstset{language=bash,showstringspaces=false,basicstyle=\ttfamily\footnotesize,breaklines=true,#1}\setbox\terminalbox=\vbox\bgroup\hsize=0.8\textwidth}
+%   {\egroup
+%     \tikzstyle{terminal} = [draw=white, text=white, font=\ttfamily, fill=black, very thick, rectangle, inner xsep=10pt, inner ysep=5pt]
+%     \tikzstyle{terminalTitle} = [fill=black!10, text=black, font=\ttfamily, draw=black!50, inner sep=5pt]
+%     \noindent\resizebox{\textwidth}{!}{ % This line fits the box to textwidth
+%       \begin{tikzpicture}
+%         \node [terminal] (box){\usebox{\terminalbox}};
+%         \node[terminalTitle, right=10pt] at (box.north west) {terminal};
+%       \end{tikzpicture}
+%     }
+%   }
